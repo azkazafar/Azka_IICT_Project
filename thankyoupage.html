@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Successful</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #374934; /* background color */
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .cont{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .thankyou-card {
+            background-color: #51654d; /* match background for consistency */
+            color: #f8f8f2; /* off-white text */
+            padding: 40px 60px;
+            border-radius: 20px; /* rounded corners */
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* subtle shadow */
+            max-width: 500px;
+        }
+
+        .thankyou-card h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .thankyou-card p {
+            font-size: 1.5rem;
+        }
+
+        .btn-home {
+            margin-top: 30px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            background-color: #f8f8f2;
+            color: #374934;
+            border: none;
+            border-radius: 12px; /* rounded button */
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-block;
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+
+        }
+
+        .btn-home:hover {
+            background-color: #d9d9d0;
+            color: #2b3729;
+        }
+
+        @media (max-width: 600px) {
+            .thankyou-card {
+                padding: 30px 20px;
+            }
+        }
+        .footer-bottom{
+    text-align: center;
+    padding-top:20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 14px;
+    color:#cccccc;
+    margin-top:20px;
+    margin-bottom: 10px;
+}
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div class="thankyou-card">
+        <h1>THANK YOU!</h1>
+        <p>Your order has been successfully placed.</p>
+        <a  class="btn-home" href="homepage.html">Back to Shopping</a>
+    </div>
+    </div>
+</body>
+<footer>
+            <div class="footer-bottom">
+                &copy;2025 Srarrel | About | Contact | Terms | Social Media | Email
+            </div>
+        </footer>
+</html>

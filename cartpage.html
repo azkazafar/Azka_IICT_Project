@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starrel-Cart</title>
+  <link rel="icon"type="image/jpeg"href="logo.jpeg" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+   <style>
+    body{
+      background: #374934;
+      color: #000;
+      font-family: "Sergoe UI", Arial, sans-serif;
+
+    }
+    .bar {
+      margin: 25px;
+      max-width: 100%;
+      height:50px;
+      border-radius: 30px;
+      background-color: rgb(242, 245, 242);
+      align-items: center;
+      display: flex;
+      gap: 20px;
+      padding: 0 20px;
+    }
+    .bar img{
+      height: 32px;
+      border-radius: 50px;
+
+    }
+    .bar a{
+      color: rgb(55, 73, 52);
+      font-weight: 600;
+      text-decoration: none;
+      }
+      .nav a:hover{
+        text-decoration: underline;
+      }
+      .container-custom{
+        max-width: 1100px;
+        margin: 40px auto;
+        background: #e8eee7;
+        padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 20px;
+      color: #000;
+
+      }
+      h1{
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 25px;
+      }
+      .cart-layout{
+        display: flex;
+        gap: 30px;
+      flex-wrap: wrap;
+      }
+      .cart-left{
+        flex: 2;
+        min-width:320px;
+      }
+      .cart-table-header{
+        display: grid;
+        grid-template-columns: 120px 1fr 120px 120px 50px;
+        font-weight: 600;
+        font-size: 14px;
+        background: #e8eee7;
+        padding: 12px 10px;
+        border: 1px solid #dcdcdc;
+        border-radius: 12px;
+        align-items: center;
+
+      }
+      .cart-item {
+        display: grid;
+        grid-template-columns: 120px 1fr 120px 120px 50px;
+        align-items: center;
+        padding: 18px 10px;
+        border: 1px solid #e9e9e9;
+        border-top: none;
+
+      }
+      .product-img{
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 10px;
+        background: #e8e8e8;
+      }
+      .product-title{
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: 600;
+      }
+      
+        .product-desc {
+          font-size: 12px;
+          color: #555;
+          margin-top: 4px;
+      }
+      .quantity {
+        display: flex;
+        align-items: center;
+        gap:6px;
+      }
+      .quantity button {
+        border: 1px solid #ccc;
+        background: #fff;
+        padding: 4px 10px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 4px;
+        user-select: none; 
+      }
+      .quantity span {
+        padding: 4px 10px;
+        font-size: 14px;
+        min-width: 30px;
+        text-align: center;
+        display: inline-block;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .remove{
+        cursor: pointer;
+        font-weight: bold;
+        color: #c00;
+        user-select: none;
+      }
+      .cart-right{
+        flex: 1;
+        border: 1px solid #e0e0e0;
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 16px;
+        min-width: 280px;
+        height: fit-content;
+      }
+      .cart-right h3{
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+      .summary-row{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+      .cart-right p{
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 600;
+      }
+      .cart-right input{
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin: 12px 0;
+        background: #fff;
+        border-radius: 6px;
+      }
+      .checkout-btn {
+        background: #374934;
+        color: #fff;
+        display: block;
+        text-align: center;
+        padding: 14px;
+        border-radius: 15px;
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 8px;
+      box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+      user-select: none;
+      }
+      .checkout-btn:hover{
+        background: #556b51;
+      }
+      .note{
+        margin-top: 12px;
+        font-size: 13px;
+        color: #555;
+      }
+       .footer-bottom{
+    text-align: center;
+    padding-top:20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 14px;
+    color:#cccccc;
+    margin-top:20px;
+    margin-bottom: 10px;
+}
+   </style>
+</head>
+<body>
+   <div class ="bar">
+    <img src="logo.jpeg" alt="Logo"/>
+    <a style = "font-size: 22px; font-weight: 700; color: #374934;">Starrel</a>
+    <a href="bestsellerpage.html"style="font-size:17px;">Best Sellers</a>
+    <a href="categoriespage.html"style="font-size:17px;">Categories </a>
+    <div class="nav ms-auto d-flex align-items-center gap-3">
+      <a href ="loginpage.html"style="font-size17px;">Login</a>
+      <a href ="signuppage.html"style="font-size17px;">Sign Up</a>
+      <a style="font-size:17px; color: #374934;">Help</a>
+    </div>
+   </div>
+  <div class="container-custom">
+    <h1>Shopping Cart</h1>
+    <div class="cart-layout">
+       <div class="cart-left" id="cart-items-container">
+        <div class="cart-table-header">        
+          <div>Products</div>
+          <div></div>
+          <div>Price</div>
+          <div>Qunatity</div>
+          <div></div>
+        </div>
+       </div>
+         <div class="cart-right">
+          <h3>Order Summary</h3>
+          <div class="summary-row"><span id="items-count">0 Items</span><span id="items-price">$0.00</span></div>
+          <div class="summary-row"><span>Standard Delivery</span><span id="shipping-charge">$60.00</span></div>
+          <div class="summary-row"><span>Discount</span><span id="discount-amount">$0.00</span></div>
+          <div class="summary-row"><span>Taxes (8%)</span><span id="taxes-amount">$0.00</span></div>
+          <p>Total Price</p>
+          <input type="text" id="discount-code" placeholder="Enter discount code (Optional)"/>
+          <div class="summary-row"><strong>SubTotal</strong><strong id="subtotal-amount">$0.00</strong></div>
+          <a class="checkout-btn" href="paymentpage.html">CHECKOUT</a>
+          <div class="note">Shop for $1000 or more and enjoy FREE SHIPPING</div>
+         </div>
+       </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+     <script>
+      
+      const products = [
+        {
+          id:1,
+          title: "Rainy Road",
+          description: "High-resolution premium print. Matte or glossy finish options.",
+          price: 137.0,
+          img: "prod1.jpeg",
+          quantity: 1,
+        },
+                {
+          id:2,
+          title: "Minimal Shadow",
+          description: "Printed on premium, fade-resistant paper for long-lasting color.",
+          price: 165.0,
+          img: "min3.jpeg",
+          quantity: 1,
+        },
+                {
+          id:3,
+          title: "Portrait Painting",
+          description: "Painted on premium, fade-resistant paper, long-lasting color",
+          price: 140.00,
+          img: "port.jpeg",
+          quantity: 1,
+        },
+      ];
+      const shippingCharge = 60;
+      const taxRate = 0.08;
+      const discountCode= "10";
+      const discountPercent = 0.10;
+
+
+      const cartContainer = document.getElementById("cart-items-container");
+      const itemsCountE1 = document.getElementById("items-count");
+      const itemsPriceE1 = document.getElementById("items-price");
+      const shippingChargeE1 = document.getElementById("shipping-charge");
+      const discountAmountE1 = document.getElementById("discount-amount");
+      const taxesAmountE1 = document.getElementById("taxes-amount");
+      const subtotalAmountE1 = document.getElementById("subtotal-amount");
+      const discountCodeInput = document.getElementById("discount-code");
+
+function renderCart(){
+  cartContainer.innerHTML ="";
+
+  if(products.length === 0){
+    cartContainer.innerHTML = `<div style="padding: 30px 10px; font-size:14px; color: #555;">
+      Your cart is currently empty. Products will appear here after you select items from the shop. </div>`;
+      updateSummary();
+      return;
+  }
+
+products.forEach((product) => {
+  const itemDiv = document.createElement("div");
+  itemDiv.className="cart-item";
+  itemDiv.dataset.id= product.id;
+  itemDiv.innerHTML = `
+  <img src="${product.img}" alt="${product.title}" class="product-img" />
+  <div>
+    <div class="product-title">${product.title}</div>
+    <div class="product-desc">${product.description}</div>
+    </div>
+    <div>$${product.price.toFixed(2)}</div>
+    <div class="quantity">
+      <button class="btn-decrease btn btn-sm btn-outline-secondary">-</button>
+        <span>${product.quantity}</span>
+        <button class="btn-increase btn btn-sm btn-outline-secondary">+</button>
+        </div>
+        <div><span class="remove" title="Remove Item">&times;</span></div>
+        `;
+        cartContainer.appendChild(itemDiv);
+      });
+
+      addListeners();
+      updateSummary();
+}
+function addListeners(){
+  document.querySelectorAll(".btn-increase").forEach((btn) => 
+btn.addEventListener("click", () => {
+  const id = parseInt(btn.closest(".cart-item").dataset.id);
+  const prod=products.find((p) =>p.id == id);
+prod.quantity++;
+renderCart();
+})
+);
+
+
+  document.querySelectorAll(".btn-decrease").forEach((btn) => 
+btn.addEventListener("click", () => {
+  const id = parseInt(btn.closest(".cart-item").dataset.id);
+  const prod=products.find((p) =>p.id == id);
+  if(prod.quantity > 1){
+    prod.quantity--;
+    renderCart();
+  }
+})
+  );
+  document.querySelectorAll(".remove").forEach((btn) =>
+   btn.addEventListener("click", () => {
+    const id =parseInt(btn.closest(".cart-item").dataset.id);
+    const index= products.findIndex((p) => p.id === id);
+    if(index > -1){
+      products.splice(index, 1);
+      renderCart();
+    }
+   } )
+  );
+}
+
+function updateSummary(){
+  const totalItems = products.reduce((acc, p) => acc + p.quantity, 0);
+  const subTotal = products.reduce((acc, p) => acc + p.price*p.quantity, 0);
+
+
+  const code = discountCodeInput.value.trim();
+  let discountAmount =0;
+  if(code === discountCode){
+    discountAmount = subTotal*discountPercent;
+  }
+
+  const taxableAmount = subTotal - discountAmount;
+  const taxes = taxableAmount*taxRate;
+
+  const total= taxableAmount + taxes + shippingCharge;
+
+  itemsCountE1.textContent = `${totalItems} Item${totalItems !== 1 ? "s" : ""}`;
+  itemsPriceE1.textContent = `$${subTotal.toFixed(2)}`;
+  discountAmountE1.textContent = `$${discountAmount.toFixed(2)}`;
+  taxesAmountE1.textContent = `$${taxes.toFixed(2)}`;
+  subtotalAmountE1.textContent = `$${total.toFixed(2)}`;
+
+
+  if(subTotal>=1000){
+    shippingChargeE1.textContent = "$0.00";
+  }
+  else{
+    shippingChargeE1.textContent = `$${shippingCharge.toFixed(2)}`;
+  }
+}
+
+discountCodeInput.addEventListener("input", updateSummary);
+
+renderCart();
+     </script>
+  </div>
+</body>
+<footer>
+            <div class="footer-bottom">
+                &copy;2025 Srarrel | About | Contact | Terms | Social Media | Email
+            </div>
+        </footer>
+</html>
